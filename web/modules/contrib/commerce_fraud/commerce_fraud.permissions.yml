@@ -1,0 +1,35 @@
+add rules entities:
+  title: 'Create new Rules entities'
+
+delete rules entities:
+  title: 'Delete Rules entities'
+
+edit rules entities:
+  title: 'Edit Rules entities'
+
+view published rules entities:
+  title: 'View published Rules entities'
+
+view unpublished rules entities:
+  title: 'View unpublished Rules entities'
+
+add suspected order entities:
+  title: 'Create new Suspected order entities'
+  restrict access: true
+
+administer suspected order entities:
+  title: 'Administer Suspected order entities'
+  description: 'Allow to access the administration form to configure Suspected order entities.'
+  restrict access: true
+
+delete suspected order entities:
+  title: 'Delete Suspected order entities'
+  restrict access: true
+
+edit suspected order entities:
+  title: 'Edit Suspected order entities'
+  restrict access: true
+
+view suspected order entities:
+  title: 'View Suspected order entities'
+  restrict access: true

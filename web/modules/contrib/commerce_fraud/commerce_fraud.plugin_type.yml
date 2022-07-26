@@ -1,0 +1,5 @@
+commerce_fraud.commerce_fraud_rule:
+  label: Commerce Fraud rule
+  provider: commerce_fraud
+  plugin_manager_service_id: plugin.manager.commerce_fraud_rule
+  plugin_definition_decorator_class: Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator

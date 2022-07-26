@@ -1,0 +1,17 @@
+{
+    "name": "drupal/commerce_fraud",
+    "description": "Detects potentially fraudulent orders.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/commerce_fraud",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.8",
+        "drupal/core": "^8.8 || ^9",
+        "drupal/commerce": "^2.20"
+    },
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/commerce_fraud",
+        "source": "https://git.drupalcode.org/project/commerce_fraud"
+    }
+}

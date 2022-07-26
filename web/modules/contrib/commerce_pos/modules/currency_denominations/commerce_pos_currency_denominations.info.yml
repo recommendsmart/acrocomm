@@ -1,0 +1,13 @@
+name: Commerce POS Currency Denominations
+description: Provides a interface for configuring currency denominations.
+type: module
+package: Commerce (POS)
+# core: 8.x
+dependencies:
+  - commerce:commerce_price
+
+# Information added by Drupal.org packaging script on 2019-02-22
+version: '8.x-2.5'
+core: '8.x'
+project: 'commerce_pos'
+datestamp: 1550879285

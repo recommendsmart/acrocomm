@@ -1,0 +1,11 @@
+name: 'BigPipe Sessionless test'
+type: module
+description: 'Support module for BigPipe Sessionless testing.'
+package: Testing
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2018-04-18
+version: '8.x-1.2'
+core: '8.x'
+project: 'big_pipe_sessionless'
+datestamp: 1524046393

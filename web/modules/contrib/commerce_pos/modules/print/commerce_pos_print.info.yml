@@ -1,0 +1,13 @@
+name: Commerce POS Print
+description: Provides print plugin functionality to other modules.
+type: module
+# core: 8.x
+package: Commerce (POS)
+dependencies:
+  - commerce_pos:commerce_pos
+
+# Information added by Drupal.org packaging script on 2019-02-22
+version: '8.x-2.5'
+core: '8.x'
+project: 'commerce_pos'
+datestamp: 1550879285

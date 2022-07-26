@@ -1,0 +1,69 @@
+{#
+/**
+ * @file commerce_fraud/templates/Mail/commerce_fraud_mail.html.twig
+ * Default theme implementation for mail about fraudulent orders.
+ *
+ * Available variables:
+ * - message: A list of properties related to order.
+ *   Keyed as:
+ *     - site_name: Name of site.
+ *     - order_id: Order ID.
+ *     - user_id: User ID.
+ *     - status: Current Order status.
+ *     - placed: When was the order placed in m/d/y format.
+ *     - fraud_score: Fraud score of order.
+ *     - stopped: Wether order stopped from completing due to fraud score.
+ *     - fraud_notes: List of name of fraud rules that applied to order.
+ *
+ * @see template_preprocess_commerce_fraud_mail()
+ *
+ * @ingroup themeable
+ */
+#}
+<h2>New Blocklisted order</h2>
+
+<h3> A new order has been placed on {{ message['site_name'] }} that is suspected to be fraudulent. </h3>
+<p> Here is a brief summary of the order :</p>
+
+<ul>
+  <li>
+    <p><strong>Placed by user</strong> : {{ message['user_name'] }}</p>
+  </li>
+  <li>
+    <p><strong>Current order status</strong> : {{ message['status'] }}</p>
+  </li>
+  <li>
+    <p><strong>This order was placed at</strong> : {{ message['placed'] }}</p>
+  </li>
+  <li>
+    <p><strong>With fraud score</strong> : {{ message['fraud_score'] }}</p>
+  </li>
+</ul>
+
+<h3>Commerce Fraud rules that applied to this order</h3>
+
+<ul>
+  {% for rule in message['fraud_notes'] %}
+    <li>
+      <p>{{rule}}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+<p>
+  {% if message['stopped'] %}
+    This order has not been completed and requires a manual review before it can be processed.
+  {% else %}
+    This order should be manually reviewed for suspicious activity.
+  {% endif %}
+</p>
+
+<hr />
+
+{% set order_url = [ url('<front>')|render, 'admin/commerce/orders/',
+  message['order_id']] | join %}
+{% set user_url = [ url('<front>')|render, 'user/',
+  message['user_id']] | join %}
+
+<p>You can view the order <a href="{{ order_url }}">here</a>.</p>
+<p>The account that this order is for can be visited <a href="{{ user_url }}">here</a>.</p>

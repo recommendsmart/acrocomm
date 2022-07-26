@@ -1,0 +1,35 @@
+commerce_fraud.content:
+  path: '/commerce_fraud'
+  defaults:
+    _controller: '\Drupal\commerce_fraud\Controller\ContentController::content'
+    _title: 'Commerce Fraud'
+  requirements:
+    _permission: 'access content'
+
+commerce_fraud.configuration:
+  path: '/admin/commerce/config/commerce_fraud'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Commerce Fraud'
+  requirements:
+    _permission: 'access commerce administration pages'
+
+commerce_fraud.settings:
+  path: '/admin/commerce/config/commerce_fraud/configuration'
+  defaults:
+    _form: '\Drupal\commerce_fraud\Form\CommerceFraudSettingsForm'
+    _title: 'Commerce Fraud: Configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.commerce_order.reset_page:
+  path: '/admin/commerce/orders/{commerce_order}/reset_fraud'
+  defaults:
+    _form: '\Drupal\commerce_fraud\Form\OrderResetForm'
+    _title: 'Reset order'
+  options:
+    parameters:
+      commerce_order:
+        type: 'entity:commerce_order'
+  requirements:
+    _permission: 'administer commerce_order'

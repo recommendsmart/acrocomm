@@ -1,0 +1,10 @@
+entity.rules.add_form:
+  route_name: entity.rules.add_form
+  title: 'Add Rule'
+  appears_on:
+    - entity.rules.collection
+entity.suspected_order.add_form:
+  route_name: entity.suspected_order.add_form
+  title: 'Add Suspected order'
+  appears_on:
+    - entity.suspected_order.collection

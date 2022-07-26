@@ -1,0 +1,18 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function acro_live_css_theme($existing, $type, $theme, $path) {
+  global $base_path;
+  return [
+    'live_css' => [
+      'render element' => 'page',
+      'path' => $path . '/templates',
+      'template' => 'live-css',
+      'variables' => [
+        'module_path' => $base_path . $path,
+        'orange_ecom_starter_is_active' => NULL,
+      ],
+    ],
+  ];
+}

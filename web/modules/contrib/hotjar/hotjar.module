@@ -1,0 +1,98 @@
+<?php
+/**
+ * @file
+ * Drupal Module: Hotjar.
+ *
+ * Adds the required Javascript to all your Drupal pages to allow
+ * tracking by hotjar (https://www.hotjar.com/).
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Define default path exclusion list to remove tracking from admin pages.
+ *
+ * See http://drupal.org/node/34970 for more information.
+ */
+// @codingStandardsIgnoreStart
+/**
+ * Default page list for admin path check.
+ *
+ * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
+ *   Use \Drupal\hotjar\HotjarSettings::HOTJAR_PAGES instead.
+ */
+define('HOTJAR_PAGES', "/admin\n/admin/*\n/batch\n/node/add*\n/node/*/*\n/user/*/*");
+
+/**
+ * Access allow.
+ *
+ * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
+ *   Use Drupal\Core\Access\AccessResult::allowed() instead.
+ */
+define('HOTJAR_ACCESS_ALLOW', TRUE);
+
+/**
+ * Access deny.
+ *
+ * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
+ *   Use Drupal\Core\Access\AccessResult::forbidden() instead.
+ */
+define('HOTJAR_ACCESS_DENY', FALSE);
+
+/**
+ * Neutral access.
+ *
+ * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
+ *   Use Drupal\Core\Access\AccessResult::neutral() instead.
+ */
+define('HOTJAR_ACCESS_IGNORE', NULL);
+// @codingStandardsIgnoreEnd
+
+/**
+ * Implements hook_help().
+ */
+function hotjar_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'hotjar.admin_settings_form':
+      return t('<a href="@hotjar_url">Hotjar</a> is a new powerful way to reveal true website user behaviour and experiences in one central tool – giving you the big picture of how you can improve your site\'s UX and conversion rates. All your data is securely stored in the cloud and is accessible at lightning speed.', ['@hotjar_url' => 'https://www.hotjar.com/']);
+  }
+}
+
+/**
+ * Implements hook_rebuild().
+ */
+function hotjar_rebuild() {
+  /** @var \Drupal\hotjar\SnippetBuilderInterface $snippet_builder */
+  $snippet_builder = \Drupal::service('hotjar.snippet');
+  $snippet_builder->createAssets();
+}
+
+/**
+ * Get Hotjar settings.
+ *
+ * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
+ *   Use \Drupal\hotjar\HotjarSettings::getSettings() instead.
+ */
+function hotjar_get_settings() {
+  @trigger_error('hotjar_get_settings() is deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 1.6.0. Use \Drupal\hotjar\HotjarSettings::getSettings() instead.', E_USER_DEPRECATED);
+  /** @var \Drupal\hotjar\HotjarSettingsInterface $service */
+  $service = \Drupal::service('hotjar.settings');
+  return $service->getSettings();
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Insert JavaScript to the <head> tag of the page.
+ */
+function hotjar_page_attachments(array &$attachments) {
+  /** @var \Drupal\hotjar\SnippetAccessInterface $access */
+  $access = \Drupal::service('hotjar.access');
+  if (!$access->check()) {
+    return;
+  }
+
+  /** @var \Drupal\hotjar\SnippetBuilderInterface $snippet */
+  $snippet = \Drupal::service('hotjar.snippet');
+  $snippet->pageAttachment($attachments);
+}

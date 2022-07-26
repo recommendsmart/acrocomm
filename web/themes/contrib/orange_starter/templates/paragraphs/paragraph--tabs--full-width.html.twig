@@ -1,0 +1,13 @@
+{% extends "paragraph--tabs.html.twig" %}
+
+{% block content_wrapper %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {% block content %}
+          {{ parent() }}
+        {% endblock content %}
+      </div>
+    </div>
+  </div>
+{% endblock content_wrapper %}

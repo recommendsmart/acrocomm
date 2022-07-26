@@ -1,0 +1,117 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/style.css: { media: all }
+  js:
+    js/contrib/bootstrap-tabcollapse.js: {}
+    js/custom/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - magnific_popup/magnific_popup
+    - orange_starter/bootstrap
+    - orange_starter/form-floating-labels
+
+js-cookie:
+  version: 1.x
+  js:
+    js/contrib/js-cookie/js.cookie.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+slick:
+  version: 1.x
+  css:
+    theme:
+      js/contrib/slick/slick.css: { media: all }
+  js:
+    js/contrib/slick/slick.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+form-floating-labels:
+  version: 1.x
+  js:
+    js/custom/form-floating-labels.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+
+aos:
+  version: 1.x
+  css:
+    theme:
+      js/contrib/aos/aos.css: { media: all }
+  js:
+    js/contrib/aos/aos.js: {}
+    js/custom/aos.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+block-modal:
+  version: 1.x
+  js:
+    js/custom/blocks/modal.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - orange_starter/js-cookie
+
+paragraph-carousel:
+  version: 1.x
+  js:
+    js/custom/paragraphs/carousel.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - orange_starter/slick
+
+paragraph-content-carousel:
+  version: 1.x
+  js:
+    js/custom/paragraphs/content-carousel.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - orange_starter/slick
+
+paragraph-logo-carousel:
+  version: 1.x
+  js:
+    js/custom/paragraphs/logo-carousel.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - orange_starter/slick
+
+paragraph-notice-strap:
+  version: 1.x
+  js:
+    js/custom/paragraphs/notice-strap.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - orange_starter/js-cookie
+
+bootstrap:
+  version: 1.x
+  js:
+    js/contrib/bootstrap/transition.js: { weight: 0 }
+    js/contrib/bootstrap/alert.js: { weight: 0 }
+    js/contrib/bootstrap/carousel.js: { weight: 0 }
+    js/contrib/bootstrap/collapse.js: { weight: 0 }
+    js/contrib/bootstrap/dropdown.js: { weight: 0 }
+    js/contrib/bootstrap/modal.js: { weight: 0 }
+    js/contrib/bootstrap/tab.js: { weight: 0 }
+    js/contrib/bootstrap/affix.js: { weight: 0 }
+    js/contrib/bootstrap/scrollspy.js: { weight: 0 }
+    js/contrib/bootstrap/tooltip.js: { weight: -1 }
+    js/contrib/bootstrap/popover.js: { weight: 0 }
+  dependencies:
+    - core/jquery

@@ -1,0 +1,11 @@
+name: Commerce Product Add-on Test
+type: module
+description: Module for tests, and examples.
+package: Testing
+dependencies:
+  - commerce_pado
+
+# Information added by Drupal.org packaging script on 2021-07-30
+version: '8.x-1.0'
+project: 'commerce_pado'
+datestamp: 1627669269

@@ -1,0 +1,40 @@
+/*
+ * Custom POS customer display styling.
+ *
+ * This stylesheet overrides the default Commerce POS customer display sub
+ * module styles.
+ *
+ */
+
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item div[class^="product--variation-field--variation"] {
+  display: none;
+  visibility: hidden;
+}
+
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item .field {
+  color: #666;
+}
+
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item .field.field--name-title {
+  color: #000;
+}
+
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item .field--name-sku {
+  padding-bottom: 0;
+  font-size: initial;
+}
+
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item .commerce-pos-customer-display__item__quantity {
+  font-size: initial;
+}
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item .commerce-pos-customer-display__item__quantity .commerce-pos-customer-display__item__quantity__label {
+  font-weight: bold;
+}
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item .commerce-pos-customer-display__item__quantity .field--name-price {
+  display: none;
+  visibility: hidden;
+}
+
+.commerce-pos-customer-display__items .commerce-pos-customer-display__item .commerce-pos-customer-display__item__total-price {
+  padding-bottom: 10px;
+}

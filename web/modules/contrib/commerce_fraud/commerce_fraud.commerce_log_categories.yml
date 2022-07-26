@@ -1,0 +1,3 @@
+commerce_fraud_order:
+  label: Fraud Rule
+  entity_type: commerce_order

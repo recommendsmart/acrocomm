@@ -1,0 +1,20 @@
+{
+  "name": "drupal/commerce_pado",
+  "description": "Allows products to be added as checkboxes to other products in the Add to Cart form.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://www.drupal.org/project/commerce_pado",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/commerce_pado",
+    "source": "https://git.drupalcode.org/project/commerce_pado"
+  },
+  "require": {
+    "drupal/core": "^8.8 || ^9"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-8.x-1.x": "1.x-dev"
+    }
+  }
+}

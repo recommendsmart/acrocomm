@@ -1,0 +1,16 @@
+commerce_fraud.settings:
+  type: config_object
+  label: Settings
+  mapping:
+    checklist_cap:
+      type: integer
+      label: Checklist cap
+    blocklist_cap:
+      type: integer
+      label: Blocklist cap
+    stop_order:
+      type: boolean
+      label: Stop order
+    send_email:
+      type: string
+      label: Send email

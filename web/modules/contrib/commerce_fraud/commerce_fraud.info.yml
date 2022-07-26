@@ -1,0 +1,20 @@
+name: Commerce Fraud
+type: module
+description: 'Detects potentially fraudulent orders'
+
+core_version_requirement: ^8.8 || ^9
+package: Commerce
+configure: entity.rules.collection
+
+dependencies:
+  - drupal:action
+  - drupal:options
+  - drupal:views
+  - commerce:commerce
+  - commerce:commerce_order
+  - commerce:commerce_log
+
+# Information added by Drupal.org packaging script on 2020-09-02
+version: '2.0.0-beta1'
+project: 'commerce_fraud'
+datestamp: 1599087203

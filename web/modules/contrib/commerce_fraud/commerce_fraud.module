@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * Contains commerce_fraud.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function commerce_fraud_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the commerce_fraud module.
+    case 'help.page.commerce_fraud':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Detects potentially fraudulent orders') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function commerce_fraud_entity_operation_alter(array &$operations, EntityInterface $entity) {
+  // Make sure we are modifying only order entity.
+  if ($entity->getEntityTypeId() !== 'commerce_order') {
+    return;
+  }
+  $resetUrl = Url::fromRoute('entity.commerce_order.reset_page', ['commerce_order' => $entity->id()]);
+
+  $operations['reset_fraud_score'] = [
+    'title' => t('Reset Fraud'),
+    'weight' => 50,
+    'url' => $resetUrl,
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function commerce_fraud_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+
+  switch ($key) {
+    case 'send_blocklist':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('New Blocklisted order - order id: @order_id', [
+        '@order_id' => $params['order_id'],
+      ], $options);
+      $body_data = [
+        '#theme' => 'commerce_fraud_mail',
+        '#message' => $params['message'],
+      ];
+      $message['body'][] = \Drupal::service('renderer')->render($body_data);
+      break;
+  }
+}
+
+/**
+ * Add the state "fraudulent" with label "Fraudulent".
+ *
+ * This state is for the `order_default` workflow.
+ *
+ * @param array $workflows
+ *   Workflow definitions, keyed by plugin ID.
+ */
+function commerce_fraud_workflows_alter(array &$workflows) {
+  $workflows['order_default']['states']['fraudulent']['label'] = 'Fraudulent';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_fraud_theme() {
+  return [
+    'commerce_fraud_mail' => [
+      'template' => 'Mail/commerce-fraud-mail',
+      'variables' => [
+        'message' => [],
+      ],
+    ],
+  ];
+}

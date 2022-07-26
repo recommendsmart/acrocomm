@@ -1,0 +1,45 @@
+commerce_fraud.rules.*:
+  type: config_entity
+  label: 'Rules'
+  mapping:
+    id:
+      type: string
+      label: 'Machine-readable name'
+    label:
+      type: label
+      label: 'Label'
+    plugin:
+      type: string
+      label: 'Plugin'
+    configuration:
+      type: commerce_fraud.rules.plugin.[%parent.plugin]
+    score:
+      type: integer
+      label: 'Score'
+
+commerce_fraud.rules.plugin.*:
+  type: commerce_fraud_rules_configuration
+
+commerce_fraud_rules_configuration:
+  type: mapping
+  mapping:
+    last_minute:
+      type: integer
+      label: 'Last Minute'
+    buy_amount:
+      type: mapping
+      label: 'Price'
+      mapping:
+        number:
+          type: integer
+          label: 'number'
+        currency_code:
+          type: string
+          label: 'currency_code'
+    buy_quantity:
+      type: integer
+      label: 'Quantity'
+    product_conditions:
+      type: sequence
+      sequence:
+        type: commerce_condition

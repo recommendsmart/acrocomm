@@ -1,0 +1,13 @@
+name: Commerce POS Keypad Test
+description: Test module for the keypad.
+type: module
+package: Testing
+# core: 8.x
+dependencies:
+  - commerce_pos:commerce_pos_keypad
+
+# Information added by Drupal.org packaging script on 2019-02-22
+version: '8.x-2.5'
+core: '8.x'
+project: 'commerce_pos'
+datestamp: 1550879285
