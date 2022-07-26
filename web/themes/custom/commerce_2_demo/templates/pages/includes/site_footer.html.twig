@@ -71,6 +71,7 @@
       </div>
     </div>
 
+    { # 
     {# Footer bottom. #}
     <div class="site-footer__bottom">
       <div class="row">
@@ -126,9 +127,11 @@
         </div>
       </div>
     </div>
+    # }
   </div>
 </footer>
 
+{ # 
 {# Video Modal #}
 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-label="{{ 'Watch this video'|t }}">
   <div class="modal-dialog" role="document">
@@ -143,7 +146,9 @@
     </div>
   </div>
 </div>
+# }
 
+{ #
 {# Help Modal #}
 <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="helpLabel">
   <div class="modal-dialog" role="document">
@@ -196,6 +201,7 @@
     </div>
   </div>
 </div>
+# }
 
 {# Feature Beacon. #}
 {% if page.feature_beacon %}
