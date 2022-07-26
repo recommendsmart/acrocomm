@@ -3,7 +3,7 @@
         'name' => 'acromedia/drupalorange-project-template',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'cd491f90e64c62f17d7e42abbad0cf9b51e6b158',
+        'reference' => 'e3be94c003f92332438e436d80577bec6a8c6afe',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -24,7 +24,7 @@
         'acromedia/drupalorange-project-template' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'cd491f90e64c62f17d7e42abbad0cf9b51e6b158',
+            'reference' => 'e3be94c003f92332438e436d80577bec6a8c6afe',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1704,6 +1704,15 @@
             'replaced' => array(
                 0 => '8.9.18',
             ),
+        ),
+        'drupal/tagify' => array(
+            'pretty_version' => '1.0.4',
+            'version' => '1.0.4.0',
+            'reference' => '1.0.4',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/tagify',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'drupal/taxonomy' => array(
             'dev_requirement' => false,

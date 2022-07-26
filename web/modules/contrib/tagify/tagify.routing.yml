@@ -1,0 +1,6 @@
+tagify.entity_autocomplete:
+  path: '/tagify_autocomplete/{target_type}/{selection_handler}/{selection_settings_key}'
+  defaults:
+    _controller: '\Drupal\tagify\Controller\TagifyEntityAutocompleteController::handleAutocomplete'
+  requirements:
+    _access: 'TRUE'

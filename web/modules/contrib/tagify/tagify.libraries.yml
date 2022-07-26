@@ -1,0 +1,78 @@
+default:
+  version: 1.x
+  js:
+    js/tagify.js: {}
+  css:
+    component:
+      css/tagify.css: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.debounce
+
+tagify:
+  remote: https://github.com/yairEO/tagify
+  version: 4.12.0
+  license:
+    name: MIT
+    url: https://github.com/yairEO/tagify/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/tagify/4.12.0/tagify.min.js: { type: external, minified: true }
+  css:
+    component:
+      //cdnjs.cloudflare.com/ajax/libs/tagify/4.12.0/tagify.min.css: { type: external, minified: true }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.debounce
+
+tagify_polyfils:
+  remote: https://github.com/yairEO/tagify
+  version: 4.12.0
+  license:
+    name: MIT
+    url: https://github.com/yairEO/tagify/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/tagify/4.12.0/tagify.polyfills.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.debounce
+
+tagify_jquery:
+  remote: https://github.com/yairEO/tagify
+  version: 4.12.0
+  license:
+    name: MIT
+    url: https://github.com/yairEO/tagify/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/tagify/4.12.0/jQuery.tagify.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.debounce
+
+dragsort:
+  remote: https://github.com/yairEO/dragsort
+  version: 1.3.1
+  license:
+    name: MIT
+    url: https://github.com/yairEO/dragsort/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    //unpkg.com/@yaireo/dragsort@1.3.1/dist/dragsort.js: { type: external }
+  css:
+    component:
+      //unpkg.com/@yaireo/dragsort@1.3.1/dist/dragsort.css: { type: external }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.debounce

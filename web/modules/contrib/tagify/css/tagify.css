@@ -1,0 +1,21 @@
+.tagify .tagify__input {
+  flex-grow: unset;
+  min-width: unset;
+}
+
+.page-wrapper .tagify *:focus,
+.form-with-tagify-widget .tagify .ui-dialog *:focus {
+  box-shadow: none;
+}
+
+.tagify__tag:hover {
+  background: #d3e2e2;
+}
+
+.tagify__tag__removeBtn:hover > .tagify__tag:hover {
+  background: #c77777;
+}
+
+.tagify__tag>div {
+  padding: 0.2em 0.5em;
+}
